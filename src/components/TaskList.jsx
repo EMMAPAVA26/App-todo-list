@@ -1,8 +1,10 @@
 import { Box, Button, Typography } from "@mui/material";
 import DeleteIcon from "@mui/icons-material/Delete";
+import EditIcon from "@mui/icons-material/Edit";
 
 
-export const TaskList = ({lisTask,handleDeleteTask,handleToogleComplete}) => {
+
+export const TaskList = ({lisTask,handleDeleteTask,handleToogleComplete,handleSaveEditingTask,handleEditingTask}) => {
 
     return (
         <>
@@ -18,6 +20,12 @@ export const TaskList = ({lisTask,handleDeleteTask,handleToogleComplete}) => {
             onClick={() => handleDeleteTask(task.id)}
             >
             <DeleteIcon />
+          </Button>
+
+          <Button variant="contained"
+          onClick={() => handleSaveEditingTask(task.id) }
+          >
+          <EditIcon/>
           </Button>
           
           </Box>
