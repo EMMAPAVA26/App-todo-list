@@ -4,17 +4,19 @@ import EditIcon from "@mui/icons-material/Edit";
 
 
 
-export const TaskList = ({lisTask,handleDeleteTask,handleToogleComplete,handleSaveEditingTask,handleEditingTask}) => {
+export const TaskList = ({lisTask,handleDeleteTask,handleToogleComplete,handleEditingTask}) => {
 
     return (
         <>
         {lisTask.map((task) => (
-            <Box sx={{backgroundColor:"red", display:"flex"}} variant="li"  key={task.id}>
+            <Box sx={{ display:"flex", gap:"0.5rem", alignItems:"center", padding:"0.5rem",}} variant="li"  key={task.id}>
             {<Typography sx={{
             textDecoration: task.completed ?"line-through" : "none",}}
             onClick={() => handleToogleComplete(task.id)}
             >
-           {task.tarea}
+           {task.tarea} 
+           
+
           </Typography>}
             <Button variant="contained"
             onClick={() => handleDeleteTask(task.id)}
@@ -23,7 +25,7 @@ export const TaskList = ({lisTask,handleDeleteTask,handleToogleComplete,handleSa
           </Button>
 
           <Button variant="contained"
-          onClick={() => handleSaveEditingTask(task.id) }
+          onClick={() => handleEditingTask(task.id) }
           >
           <EditIcon/>
           </Button>

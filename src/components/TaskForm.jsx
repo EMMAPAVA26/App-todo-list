@@ -1,9 +1,9 @@
-import { TextField, Button } from "@mui/material";
+import { TextField, Button, Box } from "@mui/material";
 
 export const TaskForm = ({ handleAddTask, handleChange, taskText,editingTask, handleSaveEditingTask}) => {
- console.log(editingTask,'Este es un editingTask') 
+ 
   return (
-    <>
+    <Box sx={{display:"flex", justifyContent:"center", alignItems:"center", gap:"0.5rem",  padding:"0.5rem"}}>
       <TextField
         id="outlined-basic"
         label="Outlined"
@@ -12,10 +12,10 @@ export const TaskForm = ({ handleAddTask, handleChange, taskText,editingTask, ha
         onChange={handleChange}
       />
 
-      <Button variant="contained" onClick={editingTask ? handleSaveEditingTask :handleAddTask }>
+      <Button variant="contained" onClick={editingTask ? handleSaveEditingTask :handleAddTask } size="large" sx={{height:"100%",}}>
         {editingTask ? 'editar ' : 'agregar'}
       </Button>
-    </>
+    </Box>
   );
 };
 
